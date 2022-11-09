@@ -10,17 +10,13 @@ auth.onAuthStateChanged(user => {
       setupUI();
     }
    });
-   
-   // login
+
    const loginForm = document.querySelector('#login-form');
    loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // get user info
     const email = loginForm['input-email'].value;
     const password = loginForm['input-password'].value;
-    // log the user in
     auth.signInWithEmailAndPassword(email, password).then((cred) => {
-      // close the login modal & reset form
       loginForm.reset();
       console.log(email);
     })
@@ -31,8 +27,7 @@ auth.onAuthStateChanged(user => {
       console.log(errorMessage);
     });
    });
-   
-   // logout
+
    const logout = document.querySelector('#logout-link');
    logout.addEventListener('click', (e) => {
     e.preventDefault();
